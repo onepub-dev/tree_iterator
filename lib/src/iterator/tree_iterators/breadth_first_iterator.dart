@@ -4,7 +4,6 @@ import '../tree_collections/breadth_first_tree_collection.dart';
 
 import 'itree_iterator.dart';
 
-
 class BreadthFirstIterator implements ITreeIterator {
   final BreadthFirstTreeCollection treeCollection;
   final Set<int> visitedNodes = <int>{};

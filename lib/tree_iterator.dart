@@ -11,7 +11,8 @@ typedef ProcessChild<N> = bool Function(N child);
 ///   /// search the tree for the 'theOne'.
 ///   var theOne = findInTree<SMCState>(virtualRoot, (node) => node.children, (node) => node.isTheOne);
 /// ```
-N findInTree<N>(N root, GetChildren<N> getChildren, ChildMatches<N> childMatches) {
+N findInTree<N>(
+    N root, GetChildren<N> getChildren, ChildMatches<N> childMatches) {
   N matched;
   traverseTree<N>(root, getChildren, (node) {
     if (childMatches(node)) {
@@ -41,7 +42,8 @@ N findInTree<N>(N root, GetChildren<N> getChildren, ChildMatches<N> childMatches
 ///
 /// ```
 
-bool traverseTree<N>(N root, GetChildren<N> getChildren, ProcessChild<N> processChild) {
+bool traverseTree<N>(
+    N root, GetChildren<N> getChildren, ProcessChild<N> processChild) {
   for (var child in getChildren(root)) {
     /// we terminate the traversal if [processChild] returns false.
     if (!processChild(child)) return false;

@@ -4,8 +4,6 @@ import '../tree_collections/depth_first_tree_collection.dart';
 
 import 'itree_iterator.dart';
 
-
-
 class DepthFirstIterator implements ITreeIterator {
   final DepthFirstTreeCollection treeCollection;
   final Set<int> visitedNodes = <int>{};

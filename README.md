@@ -51,4 +51,10 @@ e.g.
 ```
 
 
-# tree_iterator
+# Credits 
+
+The project contains code from:
+
+https://github.com/mkobuolys/flutter-design-patterns
+
+Currently this code isn't in use but the plan is to take its breadth first/depth first algorithms and implement them into this pacagek.
