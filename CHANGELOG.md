@@ -1,3 +1,6 @@
+# 1.0.1
+cleaned up the example
+
 # 1.0.0
 Added example. Fixed a bug in the traversal logic.
 
