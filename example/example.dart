@@ -1,9 +1,5 @@
 import 'package:tree_iterator/tree_iterator.dart';
 
-typedef GetChildren<N> = List<N> Function(N node);
-typedef ChildMatches<N> = bool Function(N child);
-typedef ProcessChild<N> = bool Function(N child);
-
 class Course {
   var prerequisites = <Course>[];
   String name;
@@ -19,7 +15,7 @@ class Degree extends Course {
   Degree(String name) : super(name);
 }
 
-/// Demonstrates a full text index.
+/// Demonstrate traversing the prerequisities of a degree.
 void main() {
   var degree = Degree('Computer Science');
 
