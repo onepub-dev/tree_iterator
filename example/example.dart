@@ -39,13 +39,17 @@ void main() {
 
   degree.add(networking);
 
-  /// print the entire tree.
+  ///
+  /// Traverse the tree printing each node
+  ///
   traverseTree<Course>(degree, (course) => course.prerequisites, (course) {
     print(course);
     return true;
   });
 
-  /// find net102
+  ///
+  /// Traverse the tree looking for the 'net102' node.
+  ///
   var found = findInTree<Course>(degree, (course) => course.prerequisites, (course) => course.name == 'net102');
   print('Found $found');
 }

@@ -6,11 +6,11 @@ import 'itree_iterator.dart';
 
 class BreadthFirstIterator implements ITreeIterator {
   final BreadthFirstTreeCollection treeCollection;
-  final Set<int> visitedNodes = <int>{};
+  final Set<int?> visitedNodes = <int?>{};
   final ListQueue<int> nodeQueue = ListQueue<int>();
 
   final int _initialNode = 1;
-  int _currentNode;
+  int? _currentNode;
 
   BreadthFirstIterator(this.treeCollection) {
     _currentNode = _initialNode;
@@ -25,7 +25,7 @@ class BreadthFirstIterator implements ITreeIterator {
   }
 
   @override
-  int getNext() {
+  int? getNext() {
     if (!hasNext()) {
       return null;
     }
@@ -34,7 +34,7 @@ class BreadthFirstIterator implements ITreeIterator {
     visitedNodes.add(_currentNode);
 
     if (adjacencyList.containsKey(_currentNode)) {
-      for (var node in adjacencyList[_currentNode]
+      for (var node in adjacencyList[_currentNode!]!
           .where((n) => !visitedNodes.contains(n))) {
         nodeQueue.addLast(node);
       }
