@@ -44,11 +44,15 @@ N? findInTree<N>(
 
 bool traverseTree<N>(
     N root, GetChildren<N> getChildren, ProcessChild<N> processChild) {
-  for (var child in getChildren(root)) {
+  for (final child in getChildren(root)) {
     /// we terminate the traversal if [processChild] returns false.
-    if (!processChild(child)) return false;
+    if (!processChild(child)) {
+      return false;
+    }
 
-    if (!traverseTree(child, getChildren, processChild)) return false;
+    if (!traverseTree(child, getChildren, processChild)) {
+      return false;
+    }
   }
   return true;
 }

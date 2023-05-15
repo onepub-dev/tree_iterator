@@ -1,10 +1,13 @@
 import 'dart:collection';
 
 import '../tree_collections/depth_first_tree_collection.dart';
-
 import 'itree_iterator.dart';
 
 class DepthFirstIterator implements ITreeIterator {
+  DepthFirstIterator(this.treeCollection) {
+    _currentNode = _initialNode;
+    nodeStack.add(_initialNode);
+  }
   final DepthFirstTreeCollection treeCollection;
   final Set<int?> visitedNodes = <int?>{};
   final ListQueue<int> nodeStack = ListQueue<int>();
@@ -12,17 +15,10 @@ class DepthFirstIterator implements ITreeIterator {
   final int _initialNode = 1;
   int? _currentNode;
 
-  DepthFirstIterator(this.treeCollection) {
-    _currentNode = _initialNode;
-    nodeStack.add(_initialNode);
-  }
-
   Map<int, Set<int>> get adjacencyList => treeCollection.graph.adjacencyList;
 
   @override
-  bool hasNext() {
-    return nodeStack.isNotEmpty;
-  }
+  bool hasNext() => nodeStack.isNotEmpty;
 
   @override
   int? getNext() {
@@ -34,7 +30,7 @@ class DepthFirstIterator implements ITreeIterator {
     visitedNodes.add(_currentNode);
 
     if (adjacencyList.containsKey(_currentNode)) {
-      for (var node in adjacencyList[_currentNode!]!
+      for (final node in adjacencyList[_currentNode!]!
           .where((n) => !visitedNodes.contains(n))) {
         nodeStack.addLast(node);
       }
@@ -47,7 +43,8 @@ class DepthFirstIterator implements ITreeIterator {
   void reset() {
     _currentNode = _initialNode;
     visitedNodes.clear();
-    nodeStack.clear();
-    nodeStack.add(_initialNode);
+    nodeStack
+      ..clear()
+      ..add(_initialNode);
   }
 }
