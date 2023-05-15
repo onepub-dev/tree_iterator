@@ -3,6 +3,6 @@ version: 2.0.0
 homepage: https://github.com/bsutton/tree_iterator
 description: Provides simple operations for traversing a tree. Works with any tree structure providing that you can return the set of children for a node when requested.
 environment: 
-  sdk: '>=2.12.0-259.9.beta <3.0.0'
+  sdk: '>=2.19.0 <4.0.0'
 dev_dependencies: 
-  pedantic: ^1.9.0
+  lint_hard: ^4.0.0
