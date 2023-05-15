@@ -1,5 +1,5 @@
 name: tree_iterator
-version: 2.0.0
+version: 3.0.0
 homepage: https://github.com/bsutton/tree_iterator
 description: Provides simple operations for traversing a tree. Works with any tree structure providing that you can return the set of children for a node when requested.
 environment: 

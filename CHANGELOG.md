@@ -1,3 +1,8 @@
+# 3.0.0
+- lint fixes.
+- upgraded to lint_hard 4.0
+- deprecated createIterator in favour of asIterator as lint use_to_and-as_if_applicable.
+
 # 2.0.0
 nnbd release
 
