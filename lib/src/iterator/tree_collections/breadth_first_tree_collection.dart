@@ -1,21 +1,21 @@
+import '../graph.dart';
 import '../tree_iterators/breadth_first_iterator.dart';
 import '../tree_iterators/itree_iterator.dart';
-
-import '../graph.dart';
 import 'itree_collection.dart';
 
 class BreadthFirstTreeCollection implements ITreeCollection {
-  final Graph graph;
 
   const BreadthFirstTreeCollection(this.graph);
+  final Graph graph;
 
   @override
-  ITreeIterator createIterator() {
-    return BreadthFirstIterator(this);
-  }
+  @Deprecated('Use asIterator')
+  // ignore: use_to_and_as_if_applicable
+  ITreeIterator createIterator() => BreadthFirstIterator(this);
 
   @override
-  String getTitle() {
-    return 'Breadth-first';
-  }
+  ITreeIterator asIterator() => BreadthFirstIterator(this);
+
+  @override
+  String getTitle() => 'Breadth-first';
 }
